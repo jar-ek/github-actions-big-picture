@@ -30,12 +30,12 @@ jobs:
       - run: npm install
       - run: npm test
 
-   deploy:
+  deploy:
      needs: test
 
      #what out workflow is allowed to do
      permissions:
-       conents: write
+       contents: write
        pages: write
        id-token: write
 
