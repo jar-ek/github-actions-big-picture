@@ -4,7 +4,7 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - name: set variable
-         run: echo "VAR1="jestem VAR1" >> $GITHUB_ENV
+         run: echo "VAR1=jestem VAR1" >> $GITHUB_ENV
        - name: print variable
          run: echo "VAR1 ma wartość: $VAR1"
     job2:
