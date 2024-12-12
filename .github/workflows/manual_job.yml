@@ -1,13 +1,15 @@
 on: workflow_dispatch
 jobs:
    job1:
-     runs-on: ubuntu-latest
-     steps:
-       - name: set variable
-         run: echo "VAR1=jestem VAR1" >> $GITHUB_ENV
-       - name: print variable
-         run: echo "VAR1 ma wartość: $VAR1"
-    job2:
+      runs-on: ubuntu-latest
+      steps:
+         - name: set variable
+           run: |
+              echo "VAR1=jestem VAR1" >> $GITHUB_ENV
+              echo "variable VAR1 set"
+         - name: print variable
+           run: echo "VAR1 ma wartosc $VAR1"
+   job2:
       runs-on: ubuntu-latest
       outputs:
         result: ${{ steps.set-output.outputs.result }}
@@ -15,11 +17,11 @@ jobs:
         - name: Generate Output
           id: set-output
           run: echo "result=Cześć z Joba 'job2'!" >> $GITHUB_OUTPUT
-    job3:
+   job3:
       runs-on: ubuntu-latest
       needs: job2
       steps:
-        - name: Use output from previous job
-          run: echo "The output from previous job is: ${{ needs.job2.outputs.result }}
+         - name: Use output from previous job
+           run: echo "The output from previous job is ${{ needs.job2.outputs.result }}"
         
       
