@@ -1,3 +1,4 @@
+name: manual workflow
 on: workflow_dispatch
 jobs:
    job1:
